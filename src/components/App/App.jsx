@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from '../Header/Header.jsx';
 import './App.css';
 import { useState, useEffect } from 'react';
+import AddFoodForm from '../AddFoodForm/AddFoodForm.jsx';
 
 function App() {
   const [invList, setInvList] = useState([]);
@@ -22,7 +23,7 @@ function App() {
     <div className='App'>
       <Header />
       <main>
-        <p>Under Construction...</p>
+        <AddFoodForm fetchInventory={fetchInventory} />
       </main>
     </div>
   );
