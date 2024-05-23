@@ -21,6 +21,11 @@ function App() {
     }
   }
 
+  function clearShoppingCart(event) {
+      axios.delete(`/api/inventory`)
+         .then(() => fetchInventory())
+         .catch(err => console.error(err));
+   }
 
   return (
     <div className='App'>

@@ -1,4 +1,6 @@
+
 import Item from '../Item/Item';
+
 
 export default function GetInventory({ invList }) {
   console.log(invList);
