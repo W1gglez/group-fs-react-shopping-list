@@ -9,6 +9,7 @@ export default function Item({ item, fetchInventory }) {
        .then(() => fetchInventory())
        .catch(err => console.error(err));
  }
+
   return (
     <>
       <li>
@@ -24,6 +25,7 @@ export default function Item({ item, fetchInventory }) {
           <button onClick={() => setPurchased(true)}>Purchase Item</button>
         )}
         {<button onClick={() => removeItem(item.id) }>Remove</button>}
+
       </li>
     </>
   );
