@@ -1,6 +1,8 @@
-import { useState } from 'react';
+
+
 import axios from 'axios';
 export default function Item({ item, fetchInventory }) {
+
   const [purchased, setPurchased] = useState(false);
 
 
@@ -27,6 +29,7 @@ export default function Item({ item, fetchInventory }) {
         {<button onClick={() => removeItem(item.id) }>Remove</button>}
 
       </li>
+      
     </>
   );
 }
