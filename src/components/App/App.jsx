@@ -1,22 +1,31 @@
 import React from 'react';
-
-import Header from '../Header/Header.jsx'
+import axios from 'axios';
+import Header from '../Header/Header.jsx';
 import './App.css';
-
-async function fetchInventory(){
-    try
-}
-
+import { useState, useEffect } from 'react';
 
 function App() {
-    return (
-        <div className="App">
-            <Header />
-            <main>
-                <p>Under Construction...</p>
-            </main>
-        </div>
-    );
+  const [invList, setInvList] = useState([]);
+
+  async function fetchInventory() {
+    try {
+      const result = await axios.get('/api/inventory');
+      setInvList(result);
+    } catch (err) {
+      console.error('Error', err);
+    }
+  }
+
+  useEffect(() => fetchInventory, []);
+
+  return (
+    <div className='App'>
+      <Header />
+      <main>
+        <p>Under Construction...</p>
+      </main>
+    </div>
+  );
 }
 
 export default App;
