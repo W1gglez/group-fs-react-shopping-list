@@ -49,6 +49,22 @@ router.delete('/:id', function (req, res) {
     });
 });
 
+router.delete('/', function (req, res) {
+  console.log('In DELETE route');
+  const query = `DELETE FROM "inventory";`;
+  pool
+    .query(query)
+    .then((results) => {
+      console.log('Deleting Shopping List');
+      res
+        .status(200)
+        .json({ message: `Shopping List deleted successfully.` });
+    })
+    .catch((error) => {
+      console.log('Error making DELETE request', error);
+      res.sendStatus(500);
+    });
+});
 // router.put('/:id', (req, res) => {
 //     const itemId = req.params.id;
 //     let queryText = 'UPDATE inventory SET "" =  WHERE ID = $1;';
