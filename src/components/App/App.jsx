@@ -4,26 +4,30 @@ import Header from '../Header/Header.jsx';
 import './App.css';
 import { useState, useEffect } from 'react';
 import AddFoodForm from '../AddFoodForm/AddFoodForm.jsx';
+import GetInventory from '../GetInventory/GetInventory.jsx';
+
 
 function App() {
   const [invList, setInvList] = useState([]);
 
+  useEffect(() => fetchInventory, []);
+
   async function fetchInventory() {
     try {
       const result = await axios.get('/api/inventory');
-      setInvList(result);
+      setInvList(result.data);
     } catch (err) {
       console.error('Error', err);
     }
   }
 
-  useEffect(() => fetchInventory, []);
 
   return (
     <div className='App'>
       <Header />
       <main>
         <AddFoodForm fetchInventory={fetchInventory} />
+        <GetInventory   invList={invList} />
       </main>
     </div>
   );
