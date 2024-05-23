@@ -1,11 +1,24 @@
-export default function Item({ invList }) {
+import { useState } from 'react';
+
+export default function Item({item}) {
+  const [purchased, setPurchased] = useState(false);
+
   return (
     <>
-      {invList.map((item) => (
-        <li>
-          {item.name} Quantity: {item.quantity} Unit: {item.unit}
-        </li>
-      ))}
+      <li>
+        {item.name} Quantity: {item.quantity} Unit: {item.unit}
+        {purchased ? (
+          <button
+            onClick={() => setPurchased(true)}
+            disabled
+          >
+            Added to Cart
+          </button>
+        ) : (
+          <button onClick={() => setPurchased(true)}>Purchase Item</button>
+        )}
+      </li>
+      
     </>
   );
 }

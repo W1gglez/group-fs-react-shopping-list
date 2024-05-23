@@ -5,6 +5,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import AddFoodForm from '../AddFoodForm/AddFoodForm.jsx';
 import GetInventory from '../GetInventory/GetInventory.jsx';
+import ResetButton from '../ResetButton/ResetButton.jsx';
 
 
 function App() {
@@ -21,18 +22,16 @@ function App() {
     }
   }
 
-  function clearShoppingCart(event) {
-      axios.delete(`/api/inventory`)
-         .then(() => fetchInventory())
-         .catch(err => console.error(err));
-   }
+
 
   return (
     <div className='App'>
       <Header />
       <main>
         <AddFoodForm fetchInventory={fetchInventory} />
-        <GetInventory   invList={invList} />
+        <GetInventory fetchInventory={fetchInventory}  invList={invList} />
+        <ResetButton fetchInventory={fetchInventory}
+        invList={invList}/>
       </main>
     </div>
   );

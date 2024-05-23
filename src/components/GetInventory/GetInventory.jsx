@@ -1,15 +1,25 @@
-import ResetButton from '../ResetButton/ResetButton';
+import { useState } from 'react';
 import Item from '../Item/Item';
+import ResetButton from '../ResetButton/ResetButton';
 
 
-export default function GetInventory({ invList }) {
+
+export default function GetInventory({ invList, fetchInventory }) {
   console.log(invList);
+  const [buttonClicked, setButtonClicked] = useState(false)
   return (
     <>
       <ul>
-        <Item invList={invList} />
+     {invList.map((item)=> (
+        <Item setPurchased={setPurchased}
+        purchased={purchased}
+        key={item.id}
+        item={item} fetchInventory = {fetchInventory}/>
+     ))}
       </ul>
-        <ResetButton/>
+   <ResetButton buttonClicked={buttonClicked}
+   setButtonClicked={setButtonClicked}/>
+    
     </>
   );
 }
