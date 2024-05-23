@@ -7,7 +7,12 @@ export default function GetInventory({ invList }) {
   return (
     <>
       <ul>
-        <Item invList={invList} />
+        {invList.map((item) => (
+          <Item
+            key={item.id}
+            item={item}
+          />
+        ))}
       </ul>
     </>
   );
