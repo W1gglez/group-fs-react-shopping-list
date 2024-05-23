@@ -1,4 +1,4 @@
-
+import ResetButton from '../ResetButton/ResetButton';
 import Item from '../Item/Item';
 
 
@@ -9,6 +9,7 @@ export default function GetInventory({ invList }) {
       <ul>
         <Item invList={invList} />
       </ul>
+        <ResetButton/>
     </>
   );
 }
