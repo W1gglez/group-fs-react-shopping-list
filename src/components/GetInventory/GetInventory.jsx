@@ -2,7 +2,7 @@
 import Item from '../Item/Item';
 
 
-export default function GetInventory({ invList }) {
+export default function GetInventory({ invList, fetchInventory }) {
   console.log(invList);
   return (
     <>
@@ -10,7 +10,7 @@ export default function GetInventory({ invList }) {
         {invList.map((item) => (
           <Item
             key={item.id}
-            item={item}
+            item={item} fetchInventory={fetchInventory}
           />
         ))}
       </ul>

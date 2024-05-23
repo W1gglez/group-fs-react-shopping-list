@@ -32,7 +32,7 @@ function App() {
       <Header />
       <main>
         <AddFoodForm fetchInventory={fetchInventory} />
-        <GetInventory   invList={invList} />
+        <GetInventory  fetchInventory={fetchInventory} invList={invList} />
       </main>
     </div>
   );
