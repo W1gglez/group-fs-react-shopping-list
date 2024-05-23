@@ -29,9 +29,7 @@ function App() {
       <Header />
       <main>
         <AddFoodForm fetchInventory={fetchInventory} />
-        <GetInventory fetchInventory={fetchInventory}  invList={invList} />
-        <ResetButton fetchInventory={fetchInventory}
-        invList={invList}/>
+
       </main>
     </div>
   );

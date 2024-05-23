@@ -1,7 +1,16 @@
-import { useState } from 'react';
 
-export default function Item({item}) {
+
+import axios from 'axios';
+export default function Item({ item, fetchInventory }) {
+
   const [purchased, setPurchased] = useState(false);
+
+
+  function removeItem(id) {
+    axios.delete(`/api/inventory/${id}`)
+       .then(() => fetchInventory())
+       .catch(err => console.error(err));
+ }
 
   return (
     <>
@@ -17,6 +26,8 @@ export default function Item({item}) {
         ) : (
           <button onClick={() => setPurchased(true)}>Purchase Item</button>
         )}
+        {<button onClick={() => removeItem(item.id) }>Remove</button>}
+
       </li>
       
     </>

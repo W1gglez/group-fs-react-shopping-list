@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 
 router.get('/', function (req, res) {
   console.log('In GET route');
-  const query = 'SELECT * FROM "inventory";';
+  const query = 'SELECT * FROM "inventory" ORDER BY "name" ASC;';
   pool
     .query(query)
     .then((results) => {

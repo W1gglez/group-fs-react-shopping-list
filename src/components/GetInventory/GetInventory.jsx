@@ -10,12 +10,14 @@ export default function GetInventory({ invList, fetchInventory }) {
   return (
     <>
       <ul>
-     {invList.map((item)=> (
-        <Item setPurchased={setPurchased}
-        purchased={purchased}
-        key={item.id}
-        item={item} fetchInventory = {fetchInventory}/>
-     ))}
+
+        {invList.map((item) => (
+          <Item
+            key={item.id}
+            item={item} fetchInventory={fetchInventory}
+          />
+        ))}
+
       </ul>
    <ResetButton buttonClicked={buttonClicked}
    setButtonClicked={setButtonClicked}/>
