@@ -3,6 +3,10 @@ import React from 'react';
 import Header from '../Header/Header.jsx'
 import './App.css';
 
+async function fetchInventory(){
+    try
+}
+
 
 function App() {
     return (
