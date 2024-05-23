@@ -2,12 +2,17 @@
 import Item from '../Item/Item';
 
 
-export default function GetInventory({ invList }) {
+export default function GetInventory({ invList, fetchInventory }) {
   console.log(invList);
   return (
     <>
       <ul>
-        <Item invList={invList} />
+        {invList.map((item) => (
+          <Item
+            key={item.id}
+            item={item} fetchInventory={fetchInventory}
+          />
+        ))}
       </ul>
     </>
   );
