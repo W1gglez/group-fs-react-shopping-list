@@ -3,7 +3,6 @@ import ResetButton from '../ResetButton/ResetButton';
 import { Container, Row } from 'react-bootstrap';
 
 export default function GetInventory({ invList, fetchInventory }) {
-  console.log(invList);
   return (
     <Container>
       <Row>

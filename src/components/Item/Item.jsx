@@ -75,8 +75,10 @@ export default function Item({ item, fetchInventory }) {
       >
         <Card.Body>
           <Card.Title>
-            {item.name}{' '}
-            {item.name.includes('sun') ? (
+            {item.name}
+            {item.name.toLowerCase().includes('s') &&
+            item.name.toLowerCase().includes('u') &&
+            item.name.toLowerCase().includes('n') ? (
               <Button
                 variant='light'
                 onClick={() => sunModal()}

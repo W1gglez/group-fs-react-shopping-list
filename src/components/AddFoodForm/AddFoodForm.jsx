@@ -36,50 +36,57 @@ export default function AddFoodForm({ fetchInventory }) {
   }
   return (
     <>
-      <Container fluid>
-      <form onSubmit={submitHandler}>
-        <Form.Group data-bs-theme="dark" className="mb-3, mx-auto" controlId="formItemName">
-        <Form.Label >Item Name:</Form.Label>
-        <Form.Control
-          value={itemName}
-          onChange={(evt) => setItemName(evt.target.value)}
-          name='name'
-          placeholder='Name'
-          size="lg"
-          type="text"
-          className='w-25'
-          
-        />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formItemQuantity">
-        <Form.Label>Quantity:</Form.Label>
-        <Form.Control
-
-          value={itemQuantity}
-          onChange={(evt) => setItemQuantity(evt.target.value)}
-          name='quantity'
-          placeholder='Quantity'
-          size="lg"
-          type="number"
-          className='w-25'
-        />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formItemUnit">
-        <Form.Label>Unit:</Form.Label>
-        <Form.Control
-
-          value={itemUnit}
-          onChange={(evt) => setItemUnit(evt.target.value)}
-          name='unit'
-          placeholder='Unit'
-          size="lg"
-          type="text"
-          className='w-25'
-        />
-        </Form.Group>
-        <button class="btn btn-primary">Submit</button>
-      </form>
-    </Container>
+      <Container>
+        <Form onSubmit={submitHandler}>
+          {/* <Form.Group */}
+          {/* data-bs-theme='dark'
+            className='mb-3, mx-auto'
+            controlId='formItemName'
+          > */}
+          <Form.Label>Item Name:</Form.Label>
+          <Form.Control
+            value={itemName}
+            onChange={(evt) => setItemName(evt.target.value)}
+            name='name'
+            placeholder='Name'
+            size='lg'
+            type='text'
+            className='w-25'
+          />
+          {/* </Form.Group>
+          <Form.Group */}
+          {/* className='mb-3'
+            controlId='formItemQuantity'
+          > */}
+          <Form.Label>Quantity:</Form.Label>
+          <Form.Control
+            value={itemQuantity}
+            onChange={(evt) => setItemQuantity(evt.target.value)}
+            name='quantity'
+            placeholder='Quantity'
+            size='lg'
+            type='number'
+            className='w-25'
+          />
+          {/* </Form.Group>
+          <Form.Group
+            className='mb-3'
+            controlId='formItemUnit'
+          > */}
+          <Form.Label>Unit:</Form.Label>
+          <Form.Control
+            value={itemUnit}
+            onChange={(evt) => setItemUnit(evt.target.value)}
+            name='unit'
+            placeholder='Unit'
+            size='lg'
+            type='text'
+            className='w-25'
+          />
+          {/* </Form.Group> */}
+          <Button className='btn btn-primary'>Submit</Button>
+        </Form>
+      </Container>
     </>
   );
 }
