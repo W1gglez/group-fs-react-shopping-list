@@ -7,10 +7,13 @@ import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import Container from 'react-bootstrap/Container';
 
 
+
 export default function AddFoodForm({ fetchInventory }) {
   const [itemName, setItemName] = useState('');
   const [itemQuantity, setItemQuantity] = useState(0);
   const [itemUnit, setItemUnit] = useState('');
+
+ 
 
   function submitHandler(event) {
     event.preventDefault();
@@ -51,6 +54,7 @@ export default function AddFoodForm({ fetchInventory }) {
         <Form.Group className="mb-3" controlId="formItemQuantity">
         <Form.Label>Quantity:</Form.Label>
         <Form.Control
+
           value={itemQuantity}
           onChange={(evt) => setItemQuantity(evt.target.value)}
           name='quantity'
@@ -63,6 +67,7 @@ export default function AddFoodForm({ fetchInventory }) {
         <Form.Group className="mb-3" controlId="formItemUnit">
         <Form.Label>Unit:</Form.Label>
         <Form.Control
+
           value={itemUnit}
           onChange={(evt) => setItemUnit(evt.target.value)}
           name='unit'
