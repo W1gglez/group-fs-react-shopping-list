@@ -1,11 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import ThemeProvider from 'react-bootstrap/ThemeProvider';
+import Container from 'react-bootstrap/Container';
+
+
 
 export default function AddFoodForm({ fetchInventory }) {
   const [itemName, setItemName] = useState('');
   const [itemQuantity, setItemQuantity] = useState(0);
   const [itemUnit, setItemUnit] = useState('');
+
+ 
 
   function submitHandler(event) {
     event.preventDefault();
@@ -28,30 +36,50 @@ export default function AddFoodForm({ fetchInventory }) {
   }
   return (
     <>
+      <Container fluid>
       <form onSubmit={submitHandler}>
-        <label>Item Name:</label>
-        <input
+        <Form.Group data-bs-theme="dark" className="mb-3, mx-auto" controlId="formItemName">
+        <Form.Label >Item Name:</Form.Label>
+        <Form.Control
           value={itemName}
           onChange={(evt) => setItemName(evt.target.value)}
           name='name'
           placeholder='Name'
-        ></input>
-        <label>Quantity:</label>
-        <input
+          size="lg"
+          type="text"
+          className='w-25'
+          
+        />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formItemQuantity">
+        <Form.Label>Quantity:</Form.Label>
+        <Form.Control
+
           value={itemQuantity}
           onChange={(evt) => setItemQuantity(evt.target.value)}
           name='quantity'
           placeholder='Quantity'
-        ></input>
-        <label>Unit:</label>
-        <input
+          size="lg"
+          type="number"
+          className='w-25'
+        />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formItemUnit">
+        <Form.Label>Unit:</Form.Label>
+        <Form.Control
+
           value={itemUnit}
           onChange={(evt) => setItemUnit(evt.target.value)}
           name='unit'
           placeholder='Unit'
-        ></input>
-        <button>Submit</button>
+          size="lg"
+          type="text"
+          className='w-25'
+        />
+        </Form.Group>
+        <button class="btn btn-primary">Submit</button>
       </form>
+    </Container>
     </>
   );
 }
