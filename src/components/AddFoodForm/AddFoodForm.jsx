@@ -2,10 +2,13 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
+
 export default function AddFoodForm({ fetchInventory }) {
   const [itemName, setItemName] = useState('');
   const [itemQuantity, setItemQuantity] = useState(0);
   const [itemUnit, setItemUnit] = useState('');
+
+ 
 
   function submitHandler(event) {
     event.preventDefault();
@@ -30,21 +33,21 @@ export default function AddFoodForm({ fetchInventory }) {
     <>
       <form onSubmit={submitHandler}>
         <label>Item Name:</label>
-        <input
-          value={itemName}
+        <input required
+          value={itemName} 
           onChange={(evt) => setItemName(evt.target.value)}
           name='name'
           placeholder='Name'
         ></input>
         <label>Quantity:</label>
-        <input
+        <input required
           value={itemQuantity}
           onChange={(evt) => setItemQuantity(evt.target.value)}
           name='quantity'
           placeholder='Quantity'
         ></input>
         <label>Unit:</label>
-        <input
+        <input required
           value={itemUnit}
           onChange={(evt) => setItemUnit(evt.target.value)}
           name='unit'
