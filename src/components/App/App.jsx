@@ -5,7 +5,6 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import AddFoodForm from '../AddFoodForm/AddFoodForm.jsx';
 import GetInventory from '../GetInventory/GetInventory.jsx';
-import ResetButton from '../ResetButton/ResetButton.jsx';
 
 
 function App() {

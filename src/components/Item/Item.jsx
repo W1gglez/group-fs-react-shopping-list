@@ -1,6 +1,12 @@
 import axios from 'axios';
+
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+
 import Swal from 'sweetalert2';
 import 'animate.css';
+
 
 export default function Item({ item, fetchInventory }) {
   function removeItem(id) {
@@ -61,46 +67,50 @@ function sunModal() {
 }
 
 
-  if(item.name.includes('s','u','n')){
-    return (
-      <>
-        <li>
-          {item.name} Quantity: {item.quantity} Unit: {item.unit}
-          {item.purchased === true ? (
-            <button disabled>Added to Cart</button>
-          ) : (
-            <button
-              onClick={() => {
-                purchaseItem(item.id);
-              }}
-            >
-              Purchase Item
-            </button>
-          )}
-          {<button onClick={() => removeItem(item.id)}>Remove</button>}
-          <button onClick={()=> sunModal()}><strong>🌞</strong></button>
-        </li>
-      </>
-    );
-  }
-  else {return (
-    <>
-      <li>
-        {item.name} Quantity: {item.quantity} Unit: {item.unit}
-        {item.purchased === true ? (
-          <button disabled>Added to Cart</button>
-        ) : (
-          <button
-            onClick={() => {
-              purchaseItem(item.id);
+  return (
+    <Col>
+      <Card
+        className='text-center'
+        style={{ width: '15rem' }}
+      >
+        <Card.Body>
+          <Card.Title>{item.name}</Card.Title>
+          <Card.Text>
+            Quantity: {item.quantity} {item.unit}
+            <br />
+            {item.purchased === true ? (
+              <Button
+                variant='outline-success'
+                disabled
+              >
+                Added to Cart
+              </Button>
+            ) : (
+              <Button
+                variant='success'
+                onClick={() => {
+                  purchaseItem(item.id);
+                }}
+              >
+                Purchase Item
+              </Button>
+            )}
+            {
+              <Button
+                variant='danger'
+                onClick={() => removeItem(item.id)}
+              >
+                Remove
+              </Button>
+            }
+            {if(item.name.includes('s','u','n')){
+            <button onClick={()=> sunModal()}><strong>🌞</strong></button>
             }}
-          >
-            Purchase Item
-          </button>
-        )}
-        {<button onClick={() => removeItem(item.id)}>Remove</button>}
-      </li>
-    </>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Col>
+
   );
 }
 

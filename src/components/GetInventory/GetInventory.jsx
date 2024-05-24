@@ -1,14 +1,12 @@
-import { useState } from 'react';
 import Item from '../Item/Item';
 import ResetButton from '../ResetButton/ResetButton';
-
-
+import { Container, Row } from 'react-bootstrap';
 
 export default function GetInventory({ invList, fetchInventory }) {
   console.log(invList);
   return (
-    <>
-      <ul>
+    <Container>
+      <Row>
         {invList.map((item) => (
           <Item
             key={item.id}
@@ -16,11 +14,12 @@ export default function GetInventory({ invList, fetchInventory }) {
             fetchInventory={fetchInventory}
           />
         ))}
-      </ul>
+      </Row>
+
       <ResetButton
         invList={invList}
         fetchInventory={fetchInventory}
       />
-    </>
+    </Container>
   );
 }
