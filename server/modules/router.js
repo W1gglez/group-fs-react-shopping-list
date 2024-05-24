@@ -49,6 +49,43 @@ router.delete('/:id', function (req, res) {
     });
 });
 
+router.put('/purchase/:id', function (req, res) {
+  console.log('In PUT route');
+  const itemId = req.params.id;
+  const query = `UPDATE "inventory" SET purchased=TRUE WHERE "id" = $1;`;
+  console.log(itemId);
+  pool
+    .query(query, [itemId])
+    .then((results) => {
+      console.log('Updating item');
+      res
+        .status(200)
+        .json({ message: `Item with ID '${itemId}' updated successfully.` });
+    })
+    .catch((error) => {
+      console.log('Error making PUT request', error);
+      res.sendStatus(500);
+    });
+});
+
+router.put('/resetpurchase/:id', function (req, res) {
+  console.log('In PUT route');
+  const itemId = req.params.id;
+  const query = `UPDATE "inventory" SET purchased=FALSE WHERE "id" = $1;`;
+  pool
+    .query(query, [itemId])
+    .then((results) => {
+      console.log('Updating item');
+      res
+        .status(200)
+        .json({ message: `Item with ID '${itemId}' updated successfully.` });
+    })
+    .catch((error) => {
+      console.log('Error making PUT request', error);
+      res.sendStatus(500);
+    });
+});
+
 router.delete('/', function (req, res) {
   console.log('In DELETE route');
   const query = `DELETE FROM "inventory";`;
